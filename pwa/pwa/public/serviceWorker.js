@@ -15,8 +15,9 @@ self.addEventListener("install", function (event) {
 self.addEventListener("fetch", function (event) {
   event.respondWith(
     caches.match(event.request).then(function (response) {
-      // If the resource is found in the cache, return it
       if (response) {
+        // If the resource is found in the cache, log and return it
+        console.log("Cache hit:", event.request.url);
         return response;
       }
 
@@ -25,6 +26,7 @@ self.addEventListener("fetch", function (event) {
         .then(function (networkResponse) {
           // Check if the response is valid and if it's a successful response (status 200)
           if (!networkResponse || networkResponse.status !== 200) {
+            console.log("Fetch failed:", event.request.url);
             return networkResponse; // You can customize this part based on your requirements
           }
 
@@ -36,7 +38,8 @@ self.addEventListener("fetch", function (event) {
             cache.put(event.request, responseToCache);
           });
 
-          // Return the network response to the page
+          // Log and return the network response to the page
+          console.log("Fetched and cached:", event.request.url);
           return networkResponse;
         })
         .catch(function (error) {
@@ -47,6 +50,7 @@ self.addEventListener("fetch", function (event) {
     })
   );
 });
+
 
 
 self.addEventListener("install", function (event) {
