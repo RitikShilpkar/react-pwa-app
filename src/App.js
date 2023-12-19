@@ -12,6 +12,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    <div> PI REACT PWA APP </div>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/scanner" element={<QRScanner />}></Route>
