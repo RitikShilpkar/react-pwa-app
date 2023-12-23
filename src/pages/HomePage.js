@@ -61,7 +61,7 @@ const HomePage = () => {
 
   return (
     <div className="App">
-      <h2>React - PWA</h2>
+      <h2>PI - PWA</h2>
       <button className="btn" onClick={handleNotification}>
         Send Custom notification (PWA)
       </button>
