@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 
 const HomePage = () => {
   const [isLoactionLoaded, setisLoactionLoaded] = useState();
-  const [otp, setOTP] = useState();
+  const [setOTP] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const HomePage = () => {
           console.log(err);
         });
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleNotification = () => {
@@ -43,22 +44,7 @@ const HomePage = () => {
     showNotification("Test Notification");
   };
 
-  const accessCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: true,
-      });
-      const videoTracks = stream.getVideoTracks();
-      const track = videoTracks[0];
-      alert(`Getting video from: ${track.label}`);
-      document.getElementById("video").srcObject = stream;
-    } catch (error) {
-      alert(`${error.name}`);
-      console.error(error);
-    }
-  };
-
+ 
   return (
     <div className="App">
       <h2>PI - PWA</h2>
