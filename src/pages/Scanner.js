@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { QrReader } from 'react-qr-reader';
 import { MdArrowBack, MdOutlineFlashOff } from 'react-icons/md';
 
 import './scanner.css';
 
 const QRScanner = () => {
-  const [data, setdata] = useState();
-
+ 
   const handleScanned = (result) => {
     console.log(result);
   };

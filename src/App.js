@@ -11,6 +11,9 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 const App = () => {
   return (
     <BrowserRouter>
+
+
+    
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/scanner" element={<QRScanner />}></Route>
